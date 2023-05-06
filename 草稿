@@ -1,0 +1,29 @@
+import docx
+import openai
+
+# 设置 OpenAI API 密钥
+openai.api_key = "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"
+
+# 读取 Word 文档内容
+doc = docx.Document("/Users/long/Desktop/五一新闻.docx")
+text = "\n".join([paragraph.text for paragraph in doc.paragraphs])
+
+while True:
+    # 提示输入问题
+    question = input("请输入您的问题：文中列出了哪些景点")
+
+    # 调用 OpenAI 完成 API 进行回答
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        prompt=f"Q: {question}\nA:",
+        max_tokens=1024,
+        temperature=1,
+        n=1,
+        stop=None,
+        frequency_penalty=0,
+        presence_penalty=0
+    )
+
+    # 输出回答结果
+    answer = response.choices[0].text.strip()
+    print(answer)
