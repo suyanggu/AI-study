@@ -2,7 +2,7 @@ import docx
 import openai
 
 # 设置 OpenAI API 密钥
-openai.api_key = "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"
+openai.api_key = "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"
 
 # 读取 Word 文档内容
 doc = docx.Document("/Users/long/Desktop/小军师-效能测试数据.docx")
