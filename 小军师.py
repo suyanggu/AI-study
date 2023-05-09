@@ -1,3 +1,6 @@
+# 问题在于后面的灵活提问无法结合上下文
+
+
 import docx
 import openai
 
